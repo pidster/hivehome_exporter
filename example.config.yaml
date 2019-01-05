@@ -1,0 +1,12 @@
+# Required. Your Hive credentials.
+credentials:
+  username: me@example.com
+  password: password
+
+server:
+  address: 127.0.0.1 # Optional. Local address to bind to. Defaults to all available interfaces.
+  port: 1234         # Optional. Port number to listen on. Defaults to 8000
+
+metrics:
+  collect_interval: 1m      # Optional. How often to query the Hive API to retrieve metrics. Defaults to 10s. Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+  thermostat_zone: Kitchen  # Required. The nane of the thermostat zone you want to collect metrics for
