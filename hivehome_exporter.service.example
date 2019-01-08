@@ -1,0 +1,11 @@
+# Example systemd unit file for the Hivehome Prometheus Exporter
+
+[Unit]
+Description=Hivehome Prometheus Exporter
+
+[Service]
+User=hivehome_exporter
+ExecStart=/usr/sbin/test $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
