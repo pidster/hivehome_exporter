@@ -2,6 +2,7 @@ FROM golang:latest as builder
 
 WORKDIR /build
 COPY hivehome_exporter.go ./
+RUN go get ./...
 RUN GOOS=linux go build .
 
 
