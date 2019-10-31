@@ -69,17 +69,22 @@ func getMetrics() {
 	password := viper.GetString("credentials.password")
 	client := hivehome.NewClient(username, password)
 
-	client.Login()
+	err := client.Login()
+
+	if err != nil {
+		panic(fmt.Errorf("%+v", err))
+		//log.Fatal("%+v", err)
+	}
 
 	thermostatZone := viper.GetString("metrics.thermostat_zone")
-	thermostatID := client.GetThermostatIDForZone(thermostatZone)
+	thermostatID, _ := client.GetThermostatIDForZone(thermostatZone)
 	collectInterval := viper.GetString("metrics.collect_interval")
 
 	collectionTimerDuration, _ := time.ParseDuration(collectInterval)
 
 	for range time.Tick(collectionTimerDuration) {
 
-		resp := client.GetNodeAttributes(thermostatID)
+		resp, _ := client.GetNodeAttributes(thermostatID)
 
 		currentTemp.Set(gjson.Get(resp, "temperature.reportedValue").Float())
 		targetTemp.Set(gjson.Get(resp, "targetHeatTemperature.reportedValue").Float())
