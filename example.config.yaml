@@ -9,4 +9,4 @@ server:
 
 metrics:
   collect_interval: 1m      # Optional. How often to query the Hive API to retrieve metrics. Defaults to 10s. Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
-  thermostat_zone: Kitchen  # Required. The nane of the thermostat zone you want to collect metrics for
+  thermostat_zone: Kitchen  # Required. The name of the thermostat zone you want to collect metrics for
