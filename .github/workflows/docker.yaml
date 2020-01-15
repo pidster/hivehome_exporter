@@ -11,4 +11,4 @@ jobs:
         name: devopsfu/hivehome_exporter 
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: devopsfuregistry.azurecr.io 
+        registry: devopsfu.azurecr.io 
